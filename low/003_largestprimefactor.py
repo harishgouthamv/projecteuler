@@ -33,5 +33,6 @@ while f != 1:
         x.add(prime)
     else:
         count += 1
-print(x)
-# [5, 7, 13, 29, 35, 65, 91, 145, 203, 377, 455, 1015, 1885, 2639]
+
+result = max(x)
+print("result= " + str(result))
