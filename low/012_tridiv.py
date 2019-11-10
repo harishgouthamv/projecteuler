@@ -19,25 +19,25 @@ We can see that 28 is the first triangle number to have over five divisors.
 
 What is the value of the first triangle number to have over five hundred divisors?
 '''
-from math import ceil
+from math import sqrt
 
-def checkflag(num):
+def count_divisors(num):
+    divisors = set()
+    for i in range(1, int(sqrt(num)) + 1):
+        if num % i == 0:
+            divisors.add(int(i))
+            divisors.add(int(num / i))
+    return False if len(divisors) > 500 else True
+
+def main():
     flag = True
-    count = 2
-    for c in range(2, int(ceil(num / 2)) + 2):
-        if num % c == 0: count += 1
-    flag = False if(count > 500) else True
-    print(num, flag)
-    return flag
+    tnum = 0
+    icount = 1
+    while flag:
+        tnum += icount
+        flag = count_divisors(tnum)
+        icount += 1
+    print(tnum)
 
-flag = True
-
-tnum = 0
-icount = 1
-
-while flag:
-    tnum += icount
-    #print(tnum, icount)
-    flag = checkflag(tnum)
-    icount += 1
-print(tnum)
+if __name__ == '__main__':
+    main()
