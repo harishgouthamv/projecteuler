@@ -34,17 +34,21 @@ r c r c r c r c r c
             2 1
                 2 2
 '''
-path_count = 0
-max_grid = 4
+#path_count = 0
+max_grid = 20
+'''
 max_lattice = (max_grid, max_grid)
 
 col_inc = lambda idx: (idx[0], idx[1] + 1) if idx[1] < max_grid else None
 row_inc = lambda idx: (idx[0] + 1, idx[1]) if idx[0] < max_grid else None
-
+'''
 def main():
-    root = (0, 0)
-    traverse(root)
-
+    paths = 1
+    n = 2 * max_grid
+    for k in range(1, max_grid + 1):
+        paths *= ((n + 1) - k)/k
+    print(paths)
+'''
 def traverse(node):
     print(node)
     global path_count
@@ -60,7 +64,7 @@ def traverse(node):
         path_count += 1
     elif(col_lattice is not None):
         traverse(col_lattice)
-
+'''
 if __name__ == '__main__':
     main()
-    print(path_count)
+    #print(path_count)
