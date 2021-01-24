@@ -7,8 +7,6 @@
 			"'''",
 			"Problem  - ${1:Problem}",
 			"Issue - #${2:Number}",
-			"Description -",
-			"${3:Description}",
 			"'''",
 			"$0"
 	 	],
