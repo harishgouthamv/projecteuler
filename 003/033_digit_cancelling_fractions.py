@@ -15,3 +15,15 @@ less than one in value, and containing two digits in the numerator and denominat
 If the product of these four fractions is given in its lowest common terms,
 find the value of the denominator.
 '''
+from math import gcd
+dprod = 1
+nprod = 1
+
+for i in range(1, 10):
+  for n in range(1, 10):
+    for d in range(1, 10):
+      if ((n * 10 + i) * d) == (n * (i * 10 + d)):
+        dprod *= d
+        nprod *= n
+
+print(dprod/gcd(nprod, dprod))
