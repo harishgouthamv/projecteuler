@@ -16,3 +16,21 @@ identity can be written as a 1 through 9 pandigital.
 HINT: Some products can be obtained in more than one way so be sure to
 only include it once in your sum.
 '''
+from itertools import permutations
+
+pdigits = [str(x) for x in range(1,10)]
+
+pset = set()
+
+for perm in permutations(pdigits, 9):
+  pandigit = "".join(perm)
+  for x in range(1, 8):
+    multiplicand = int(pandigit[:x])
+    for y in range(x+1, 9):
+      multiplier = int(pandigit[x:y])
+      product = int(pandigit[y:])
+      if product > multiplicand and product > multiplier and (multiplicand*multiplier == product):
+        print(multiplicand, multiplier, product)
+        pset.add(product)
+
+print(sum(pset))
