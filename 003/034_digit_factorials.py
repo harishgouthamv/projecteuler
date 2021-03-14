@@ -10,3 +10,14 @@ factorial of their digits.
 
 Note: As 1! = 1 and 2! = 2 are not sums they are not included.
 '''
+from math import factorial
+
+s = 0
+
+c = 10
+
+while True:
+  if(sum([factorial(int(x)) for x in str(c)]) == c):
+    s += c
+    print(s)
+  c += 1
