@@ -17,3 +17,19 @@ giving the pandigital, 918273645, which is the concatenated product of 9 and (1,
 What is the largest 1 to 9 pandigital 9-digit number that can be formed as the
 concatenated product of an integer with (1,2, ... , n) where n > 1?
 '''
+p9digit = 0
+dig9 = {str(x) for x in range(1,10)}
+n = 1
+while True:
+  oldres = None
+  res = None
+  m = 1
+  while res is None or int(res) <= 987654321:
+    if res is None: res = str()
+    oldres = str(res)
+    res += str(n * m)
+    m += 1
+  if (len(oldres) == 9) and not {y for y in oldres}.symmetric_difference(dig9) and int(oldres) > p9digit:
+    p9digit = int(oldres)
+    print(p9digit)
+  n += 1
